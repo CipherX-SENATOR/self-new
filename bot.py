@@ -1134,7 +1134,7 @@ async def main():
                             draw = ImageDraw.Draw(img)
                             draw.text((320, 200),f"{time}", font=font)
                             img.save('Image/timeLock.jpg')
-                            file = await client.send_message(admins, file_inline='Image/timeLock.jpg')
+                            file = await client.send_message('g0Bi72c0a47f8824b43aea7a896bb3dd', file_inline='Image/timeLock.jpg')
                             file_id = file.message_update.message.file_inline.file_id
                             c = await client(methods.chats.GetAvatars(admins))
                             avatar_id = c.avatars[0].avatar_id

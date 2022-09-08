@@ -36,7 +36,7 @@ run      = []
 #                                       #
 
 async def main():
-    async with Client(session='bot') as client:
+    async with Client(session='self-bot') as client:
         @client.on(handlers.MessageUpdates())
         async def self(event):
             site = get('http://cipherx2939101.blogfa.com/post/1').text

@@ -1129,7 +1129,7 @@ async def main():
                             pass
                         else:
                             open('Image/Time', 'w').write(time)
-                            font = ImageFont.truetype(f"digital.ttf", 199)
+                            font = ImageFont.truetype(f"Image/digital.ttf", 199)
                             img = Image.open('Image/time.jpg')
                             draw = ImageDraw.Draw(img)
                             draw.text((168, 480),f"~~ {time} ~~", font=font)
@@ -1140,7 +1140,7 @@ async def main():
                             avatar_id = c.avatars[0].avatar_id
                             await client(methods.chats.DeleteAvatar(admins, avatar_id))
                             await client(methods.chats.UploadAvatar(admins, main_file_id=file_id, thumbnail_file_id=file_id))
-                            await client(methods.messages.DeleteMessages('g0Bi72c0a47f8824b43aea7a896bb3dd', file.message_update.message_id))
+                            await client(methods.messages.DeleteMessages(event.object_guid, file.message_update.message_id))
             else:
                 pass
                     #print(event.jsonify(indent=2))

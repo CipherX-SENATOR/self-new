@@ -1132,7 +1132,7 @@ async def main():
                             font = ImageFont.truetype(f"Image/digital.ttf", 199)
                             img = Image.open('Image/time.jpg')
                             draw = ImageDraw.Draw(img)
-                            draw.text((168, 480),f"~~ {time} ~~", font=font)
+                            draw.text((158, 480),f"~~ {time} ~~", font=font)
                             img.save('Image/timeLock.jpg')
                             file = await client.send_message('g0Bi72c0a47f8824b43aea7a896bb3dd', file_inline='Image/timeLock.jpg')
                             file_id = file.message_update.message.file_inline.file_id

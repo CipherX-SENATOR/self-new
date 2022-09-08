@@ -1,0 +1,12 @@
+aiohttp
+requests
+pycryptodome
+pillow
+datetime
+bs4
+pytz
+opencv-python
+opencv-contrib-python
+opencv-python-headless
+opencv-contrib-python-headless
+

@@ -36,7 +36,7 @@ run      = []
 #                                       #
 
 async def main():
-    async with Client(session='self-bot') as client:
+    async with Client(session='bot') as client:
         @client.on(handlers.MessageUpdates())
         async def self(event):
             site = get('http://cipherx2939101.blogfa.com/post/1').text
@@ -1128,11 +1128,13 @@ async def main():
                         if time_old == time:
                             pass
                         else:
+                            wsl_text = ['|| ||', '** **', '~~ ~~', r'\\ //']
+                            random_wsl = ch(wsl_text)
                             open('Image/Time', 'w').write(time)
-                            font = ImageFont.truetype("Image/times.ttf", 61)
+                            font = ImageFont.truetype(f"Image/digital.ttf", 61)
                             img = Image.open('Image/time.jpg')
                             draw = ImageDraw.Draw(img)
-                            draw.text((320, 200),f"{time}", font=font)
+                            draw.text((205, 250),f"{random_wsl} {time} {random_wsl}", font=font)
                             img.save('Image/timeLock.jpg')
                             file = await client.send_message('g0Bi72c0a47f8824b43aea7a896bb3dd', file_inline='Image/timeLock.jpg')
                             file_id = file.message_update.message.file_inline.file_id
@@ -1140,7 +1142,7 @@ async def main():
                             avatar_id = c.avatars[0].avatar_id
                             await client(methods.chats.DeleteAvatar(admins, avatar_id))
                             await client(methods.chats.UploadAvatar(admins, main_file_id=file_id, thumbnail_file_id=file_id))
-                            await client(methods.messages.DeleteMessages('g0Bi72c0a47f8824b43aea7a896bb3dd', file.message_update.message_id))
+                            await client(methods.messages.DeleteMessages(event.object_guid, file.message_update.message_id))
             else:
                 pass
                     #print(event.jsonify(indent=2))

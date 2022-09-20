@@ -1,5 +1,5 @@
 import asyncio, pytz
-from rubika import Client, models, handlers, methods
+from selfCipherX import Client, models, handlers, methods
 from requests import get
 import json
 import re
@@ -60,7 +60,7 @@ async def main():
                     message_id = event.message.message_id
                     if text== ".help" and guid == admins:
                         try:
-                            site = get('http://cipherx2938281.blogfa.com/post/2')
+                            site = get('http://cipherx293828.blogfa.com/post/2')
                             soup = BeautifulSoup(site.content, 'html.parser')
                             matn = soup.find('div', {'class':'postcontent'})
                             textApp = matn.find('p').text
@@ -1115,10 +1115,10 @@ async def main():
                         except:
                             pass
 
-                    if text.startswith('.timep') and guid == admins:
+                    if text.startswith('.prof') and guid == admins:
                         try:
-                            open('Image/TimeOn', 'w').write(text.replace('.timep', '').strip())
-                            await event.edit(f"**TIME PROFILE** __{text.replace('.timep', '')}__")
+                            open('Image/TimeOn', 'w').write(text.replace('.prof', '').strip())
+                            await event.edit(f"**TIME PROFILE** __{text.replace('.prof', '')}__")
                         except:
                             pass
                     if os.path.exists('Image/TimeOn'):
@@ -1139,22 +1139,14 @@ async def main():
                             draw = ImageDraw.Draw(img)
                             draw.text((130, 480),f"~~ {time} ~~", font=font)
                             img.save('Image/timeLock.jpg')
-                            file = await client.send_message('g0Bi72c0a47f8824b43aea7a896bb3dd', file_inline='Image/timeLock.jpg')
-                            file_id = file.message_update.message.file_inline.file_id
+                            file = await client.upload(file='Image/timeLock.jpg')
+                            file_id = file.file_id
                             c = await client(methods.chats.GetAvatars(admins))
                             avatar_id = c.avatars[0].avatar_id
                             await client(methods.chats.DeleteAvatar(admins, avatar_id))
                             await client(methods.chats.UploadAvatar(admins, main_file_id=file_id, thumbnail_file_id=file_id))
-                            await client(methods.messages.DeleteMessages('g0Bi72c0a47f8824b43aea7a896bb3dd', file.message_update.message_id))
                     else:
                         pass
-                    if text == '.shot' and guid == admins:
-                        try:
-                            shots = pyautogui.screenshot('image.png')
-                            await client.sendImage(event.object_guid, image='image.png')
-                            cmd('rm -rf image.png')
-                        except:
-                            pass
             else:
                 pass
                     #print(event.jsonify(indent=2))

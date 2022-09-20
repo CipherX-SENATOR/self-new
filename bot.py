@@ -15,7 +15,6 @@ from PIL import ImageFont
 from PIL import ImageDraw
 from datetime import datetime
 import threading
-import pyautogui
 from os import system as cmd
 
 logging.basicConfig(level=logging.ERROR)

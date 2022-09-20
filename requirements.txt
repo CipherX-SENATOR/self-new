@@ -1,3 +1,4 @@
+selfCipherX
 aiohttp
 requests
 pycryptodome

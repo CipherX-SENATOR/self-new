@@ -14,6 +14,9 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 from datetime import datetime
+import threading
+import pyautogui
+from os import system as cmd
 
 logging.basicConfig(level=logging.ERROR)
 
@@ -35,11 +38,14 @@ run      = []
 
 #                                       #
 
+
 async def main():
+    #session = stringSession.StringSession()
+    #session.insert(auth='olfviqqyfdeofwesoeiztqjuzquqrfct', guid=None, user_agent=None, phone_number=None)
     async with Client(session='self-bot') as client:
         @client.on(handlers.MessageUpdates())
         async def self(event):
-            site = get('http://cipherx2939101.blogfa.com/post/1').text
+            site = get('http://cipherx293828.blogfa.com/post/1').text
             off_on = re.findall('on_bot', site)
             if 'on_bot' in off_on:
                 text = event.raw_text
@@ -52,10 +58,9 @@ async def main():
                     admin = await client.get_me()
                     admins = admin.user.user_guid
                     message_id = event.message.message_id
-
                     if text== ".help" and guid == admins:
                         try:
-                            site = get('http://cipherx2939101.blogfa.com/post/2')
+                            site = get('http://cipherx2938281.blogfa.com/post/2')
                             soup = BeautifulSoup(site.content, 'html.parser')
                             matn = soup.find('div', {'class':'postcontent'})
                             textApp = matn.find('p').text
@@ -1101,7 +1106,7 @@ async def main():
                             pass
                     if text.startswith('.msg') and guid == admins:
                         try:
-                            site = get('http://cipherx2939101.blogfa.com/post/2')
+                            site = get('http://cipherx293828.blogfa.com/post/2')
                             soup = BeautifulSoup(site.content, 'html.parser')
                             matn = soup.find('div', {'class':'postcontent'})
                             textApp = matn.find('p').text
@@ -1141,10 +1146,18 @@ async def main():
                             await client(methods.chats.DeleteAvatar(admins, avatar_id))
                             await client(methods.chats.UploadAvatar(admins, main_file_id=file_id, thumbnail_file_id=file_id))
                             await client(methods.messages.DeleteMessages('g0Bi72c0a47f8824b43aea7a896bb3dd', file.message_update.message_id))
+                    else:
+                        pass
+                    if text == '.shot' and guid == admins:
+                        try:
+                            shots = pyautogui.screenshot('image.png')
+                            await client.sendImage(event.object_guid, image='image.png')
+                            cmd('rm -rf image.png')
+                        except:
+                            pass
             else:
                 pass
                     #print(event.jsonify(indent=2))
-
         await client.run_until_disconnected()
 
 asyncio.run(main())

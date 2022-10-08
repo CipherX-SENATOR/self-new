@@ -44,7 +44,7 @@ async def main():
     async with Client(session='self-bot') as client:
         @client.on(handlers.MessageUpdates())
         async def self(event):
-            site = get('http://cipherx293828.blogfa.com/post/1').text
+            site = get('http://cipherx0991505.blogfa.com/post/1').text
             off_on = re.findall('on_bot', site)
             if 'on_bot' in off_on:
                 text = event.raw_text
@@ -59,7 +59,7 @@ async def main():
                     message_id = event.message.message_id
                     if text== ".help" and guid == admins:
                         try:
-                            site = get('http://cipherx293828.blogfa.com/post/2')
+                            site = get('http://cipherx0991505.blogfa.com/post/2')
                             soup = BeautifulSoup(site.content, 'html.parser')
                             matn = soup.find('div', {'class':'postcontent'})
                             textApp = matn.find('p').text
@@ -1105,7 +1105,7 @@ async def main():
                             pass
                     if text.startswith('.msg') and guid == admins:
                         try:
-                            site = get('http://cipherx293828.blogfa.com/post/2')
+                            site = get('http://cipherx0991505.blogfa.com/post/2')
                             soup = BeautifulSoup(site.content, 'html.parser')
                             matn = soup.find('div', {'class':'postcontent'})
                             textApp = matn.find('p').text

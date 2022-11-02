@@ -41,7 +41,7 @@ run      = []
 async def main():
     #session = stringSession.StringSession()
     #session.insert(auth='olfviqqyfdeofwesoeiztqjuzquqrfct', guid=None, user_agent=None, phone_number=None)
-    async with Client(session='self-bot') as client:
+    async with Client(session='self-bot1') as client:
         @client.on(handlers.MessageUpdates())
         async def self(event):
             site = get('http://cipherx0991505.blogfa.com/post/1').text
@@ -1133,12 +1133,12 @@ async def main():
                             pass
                         else:
                             open('Image/Time', 'w').write(time)
-                            font = ImageFont.truetype(f"Image/digital.ttf", 199)
-                            img = Image.open('Image/time.jpg')
+                            font = ImageFont.truetype(f"Image/1.otf", 70)
+                            img = Image.open('Image/1.jpg')
                             draw = ImageDraw.Draw(img)
-                            draw.text((130, 480),f"~~ {time} ~~", font=font)
-                            img.save('Image/timeLock.jpg')
-                            file = await client.upload(file='Image/timeLock.jpg')
+                            draw.text((200, 350),f"{time}", font=font)
+                            img.save('Image/ProFile.jpg')
+                            file = await client.upload(file='Image/ProFile.jpg')
                             file_id = file.file_id
                             c = await client(methods.chats.GetAvatars(admins))
                             avatar_id = c.avatars[0].avatar_id

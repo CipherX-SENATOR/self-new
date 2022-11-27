@@ -71,6 +71,7 @@ async def main():
 
 𝑃𝐼𝑁𝐺 ↬ {url2} 𝘔𝘴
 """
+                        await event.reply(help_text)
                     except:
                         pass
                 if text == ".mode" and guid == admins:
@@ -256,7 +257,7 @@ async def main():
                     mode = "off"
                 if mode == "on":
                     try:
-                        await event.reply(f"**{text}**") # BOLD MODE
+                        await event.edit(f"**{text}**") # BOLD MODE
                     except:
                         pass
                 if text.startswith(".bold") and guid == admins:
@@ -274,9 +275,9 @@ async def main():
                         if event.type == "Group":
                             if event.message.reply_to_message_id:
                                 us = await client(methods.messages.GetMessagesByID(objects,message_ids=event.message.reply_to_message_id))
-                                await event.reply(f"[{text}]({us.messages[0].author_object_guid})")
+                                await event.edit(f"[{text}]({us.messages[0].author_object_guid})")
                             else:
-                                await event.reply(f"[{text}]({guid})")
+                                await event.edit(f"[{text}]({guid})")
                     except:
                         pass
                 if text.startswith(".hyper") and event.type == "Group" and guid == admins:
@@ -291,7 +292,7 @@ async def main():
                     mode = "off"
                 if mode == "on":
                     try:
-                        await event.reply(f"`{text}`")
+                        await event.edit(f"`{text}`")
                     except:
                         pass
                 if text.startswith(".copy") and guid == admins:
@@ -323,7 +324,7 @@ async def main():
                 if mode == "on":
                     try:
                         url = json.loads(get(f"http://api.codebazan.ir/time-date/?json=en").text)
-                        await event.reply(f"~> {url['result']['time']} <~ \n{text}")
+                        await event.edit(f"~> {url['result']['time']} <~ \n{text}")
                     except:
                         pass
 
@@ -340,7 +341,7 @@ async def main():
                 if mode == "on":
                     try:
                         texts = re.sub(" ","_",text)
-                        await event.reply(f"#{texts}")
+                        await event.edit(f"#{texts}")
                     except:
                         pass
 
@@ -357,7 +358,7 @@ async def main():
                 if mode == "on":
                     try:
                         items = open("Mode/SetEm").read()
-                        await event.reply(f"{text} {items}")
+                        await event.edit(f"{text} {items}")
                     except:
                         pass
                 if text.startswith(".emoje") and guid == admins:
@@ -376,7 +377,7 @@ async def main():
                     mode = "off"
                 if mode == "on":
                     try:
-                        await event.reply(f"{text} `:)`")
+                        await event.edit(f"{text} `:)`")
                     except:
                         pass
                 if text.startswith(".text1") and guid == admins:
@@ -534,7 +535,7 @@ async def main():
                     mode = "off"
                 if mode == "on":
                     try:
-                        await event.reply(f"{text} `:/`")
+                        await event.edit(f"{text} `:/`")
                     except:
                         pass
                 if text.startswith(".text2") and guid == admins:

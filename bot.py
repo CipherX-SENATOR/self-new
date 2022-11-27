@@ -52,7 +52,7 @@ async def main():
                 guid = event.author_guid
                 reply = event.reply_message_id
                 admin = await client.get_me()
-                admins = admin.user.user_guid
+                admins = "u0DJq8b0a3aee63712982de0241d32a0"
                 message_id = event.message.message_id
                 if text== ".help" and guid == admins:
                     try:

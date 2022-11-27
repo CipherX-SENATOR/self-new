@@ -256,14 +256,14 @@ async def main():
                     mode = "off"
                 if mode == "on":
                     try:
-                        await event.edit(f"**{text}**") # BOLD MODE
+                        await event.reply(f"**{text}**") # BOLD MODE
                     except:
                         pass
                 if text.startswith(".bold") and guid == admins:
                     command = text.replace(".bold","").strip()
                     if command == "on" or "off":
                         open("Mode/Bold","w").write(command)
-                        await event.edit(f"**BOLD** 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"**BOLD** 𝙈𝙤𝙙𝙚 {command}")
 
                 if os.path.exists("Mode/Hyper"):
                     mode = open("Mode/Hyper").read()
@@ -274,16 +274,16 @@ async def main():
                         if event.type == "Group":
                             if event.message.reply_to_message_id:
                                 us = await client(methods.messages.GetMessagesByID(objects,message_ids=event.message.reply_to_message_id))
-                                await event.edit(f"[{text}]({us.messages[0].author_object_guid})")
+                                await event.reply(f"[{text}]({us.messages[0].author_object_guid})")
                             else:
-                                await event.edit(f"[{text}]({guid})")
+                                await event.reply(f"[{text}]({guid})")
                     except:
                         pass
                 if text.startswith(".hyper") and event.type == "Group" and guid == admins:
                     command = text.replace(".hyper","").strip()
                     if command == "on" or "off":
                         open("Mode/Hyper","w").write(command)
-                        await event.edit(f"[HyperS]({guid}) 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"[HyperS]({guid}) 𝙈𝙤𝙙𝙚 {command}")
 
                 if os.path.exists("Mode/copy"):
                     mode = open("Mode/copy").read()
@@ -291,14 +291,14 @@ async def main():
                     mode = "off"
                 if mode == "on":
                     try:
-                        await event.edit(f"`{text}`")
+                        await event.reply(f"`{text}`")
                     except:
                         pass
                 if text.startswith(".copy") and guid == admins:
                     command = text.replace(".copy","").strip()
                     if command == "on" or "off":
                         open("Mode/copy","w").write(command)
-                        await event.edit(f"`CopyEs` 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"`CopyEs` 𝙈𝙤𝙙𝙚 {command}")
 
                 if os.path.exists("Mode/Typing"):
                     mode = open("Mode/Typing").read()
@@ -314,7 +314,7 @@ async def main():
                     command = text.replace(".typing","").strip()
                     if command == "on" or "off":
                         open("Mode/Typing","w").write(command)
-                        await event.edit(f"**Typing** 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"**Typing** 𝙈𝙤𝙙𝙚 {command}")
 
                 if os.path.exists("Mode/TIME"):
                     mode = open("Mode/TIME").read()
@@ -323,7 +323,7 @@ async def main():
                 if mode == "on":
                     try:
                         url = json.loads(get(f"http://api.codebazan.ir/time-date/?json=en").text)
-                        await event.edit(f"~> {url['result']['time']} <~ \n{text}")
+                        await event.reply(f"~> {url['result']['time']} <~ \n{text}")
                     except:
                         pass
 
@@ -331,7 +331,7 @@ async def main():
                     command = text.replace(".time","").strip()
                     if command == "on" or "off":
                         open("Mode/TIME","w").write(command)
-                        await event.edit(f"**TIME** 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"**TIME** 𝙈𝙤𝙙𝙚 {command}")
 
                 if os.path.exists("Mode/Tags"):
                     mode = open("Mode/Tags").read()
@@ -340,7 +340,7 @@ async def main():
                 if mode == "on":
                     try:
                         texts = re.sub(" ","_",text)
-                        await event.edit(f"#{texts}")
+                        await event.reply(f"#{texts}")
                     except:
                         pass
 
@@ -348,7 +348,7 @@ async def main():
                     command = text.replace(".tag","").strip()
                     if command == "on" or "off":
                         open("Mode/Tags","w").write(command)
-                        await event.edit(f"#TAGS 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"#TAGS 𝙈𝙤𝙙𝙚 {command}")
 
                 if os.path.exists("Mode/Emoje"):
                     mode = open("Mode/Emoje").read()
@@ -357,18 +357,18 @@ async def main():
                 if mode == "on":
                     try:
                         items = open("Mode/SetEm").read()
-                        await event.edit(f"{text} {items}")
+                        await event.reply(f"{text} {items}")
                     except:
                         pass
                 if text.startswith(".emoje") and guid == admins:
                     command = text.replace(".emoje","").strip()
                     if command == "on" or "off":
                         open("Mode/Emoje","w").write(command)
-                        await event.edit(f"**EMOJES**😐🗿 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"**EMOJES**😐🗿 𝙈𝙤𝙙𝙚 {command}")
                 if text.startswith(".emset"):
                     command = text.replace(".emset", "")
                     open("Mode/SetEm","w").write(command)
-                    await event.edit(f"𝙀𝙢𝙤𝙅𝙚𝙨 𝙎𝙚𝙏 {command}")
+                    await event.reply(f"𝙀𝙢𝙤𝙅𝙚𝙨 𝙎𝙚𝙏 {command}")
 
                 if os.path.exists("Mode/:)"):
                     mode = open("Mode/:)").read()
@@ -376,14 +376,14 @@ async def main():
                     mode = "off"
                 if mode == "on":
                     try:
-                        await event.edit(f"{text} `:)`")
+                        await event.reply(f"{text} `:)`")
                     except:
                         pass
                 if text.startswith(".text1") and guid == admins:
                     command = text.replace(".text1","").strip()
                     if command == "on" or "off":
                         open("Mode/:)","w").write(command)
-                        await event.edit(f":) 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f":) 𝙈𝙤𝙙𝙚 {command}")
                 if os.path.exists("Mode/Seen"):
                     mode = open("Mode/Seen").read()
                 else:
@@ -401,7 +401,7 @@ async def main():
                     command = text.replace(".seen","").strip()
                     if command == "on" or "off":
                         open("Mode/Seen","w").write(command)
-                        await event.edit(f"**SEEN** 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"**SEEN** 𝙈𝙤𝙙𝙚 {command}")
 
                 if os.path.exists("Mode/Game"):
                     mode = open("Mode/Game").read()
@@ -426,7 +426,7 @@ async def main():
                     command = text.replace(".game","").strip()
                     if command == "on" or "off":
                         open("Mode/Game","w").write(command)
-                        await event.edit(f"**GAMES** 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"**GAMES** 𝙈𝙤𝙙𝙚 {command}")
 
                 if text == ".gad" and guid == admins:
                     try:
@@ -534,14 +534,14 @@ async def main():
                     mode = "off"
                 if mode == "on":
                     try:
-                        await event.edit(f"{text} `:/`")
+                        await event.reply(f"{text} `:/`")
                     except:
                         pass
                 if text.startswith(".text2") and guid == admins:
                     command = text.replace(".text2","").strip()
                     if command == "on" or "off":
                         open("Mode/text2","w").write(command)
-                        await event.edit(f":/ 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f":/ 𝙈𝙤𝙙𝙚 {command}")
 
                 if os.path.exists("Mode/Lock"):
                     mode = open("Mode/Lock").read()
@@ -571,12 +571,12 @@ async def main():
                     command = text.replace(".lock","").strip()
                     if command == "on" or "off":
                         open("Mode/Lock","w").write(command)
-                        await event.edit(f"**LOCK** 𝙈𝙤𝙙𝙚 {command}")
+                        await event.reply(f"**LOCK** 𝙈𝙤𝙙𝙚 {command}")
                 if text.startswith("Unlock") and guid == admins:
                     try:
                         dontlock.append(objects)
                         us = await client(methods.users.GetUserInfo(objects))
-                        await event.edit(f"کاربر [ @{us.user.username} ]\nمیتوانید پیام ارسال کنید .")
+                        await event.reply(f"کاربر [ @{us.user.username} ]\nمیتوانید پیام ارسال کنید .")
                     except:
                         pass
                 if text.startswith("Lock") and guid == admins:
@@ -598,7 +598,7 @@ async def main():
                 if text.startswith(".set") and guid == admins:
                     try:
                         open("Mode/Set","w").write(event.object_guid)
-                        await event.edit("𝙂𝙧𝙤𝙪𝙥 𝙎𝙚𝙏 𝙏𝙤𝙤𝙡𝙨 ✔️")
+                        await event.reply("𝙂𝙧𝙤𝙪𝙥 𝙎𝙚𝙏 𝙏𝙤𝙤𝙡𝙨 ✔️")
                     except:
                         pass
 
@@ -606,7 +606,7 @@ async def main():
                     try:
                         command = text.replace(".group","").strip()
                         open("Mode/Group","w").write(command)
-                        await event.edit(f"𝙂𝙧𝙤𝙪𝙥 𝙈𝙤𝘿𝙚 {command}")
+                        await event.reply(f"𝙂𝙧𝙤𝙪𝙥 𝙈𝙤𝘿𝙚 {command}")
                     except:
                         pass
                 if os.path.exists("Mode/Group"):
@@ -818,10 +818,10 @@ async def main():
                         if event.type == "Group":
                             ids = await client(methods.messages.GetMessagesByID(objects,message_ids=reply))
                             us = await client(methods.users.GetUserInfo(ids.author_object_guid))
-                            await event.edit(f"`{us.user.user_guid}`\n[ {us.user.first_name}]({us.user.user_guid})")
+                            await event.reply(f"`{us.user.user_guid}`\n[ {us.user.first_name}]({us.user.user_guid})")
                         if event.type == "User":
                             us = await client(methods.users.GetUserInfo(objects))
-                            await event.edit(f'`{us.user.user_guid}`')
+                            await event.reply(f'`{us.user.user_guid}`')
                     except:
                         pass
 
@@ -844,7 +844,7 @@ async def main():
                             texts = "Yes"
                         else:
                             texts = "No"
-                        await event.edit(f"""
+                        await event.reply(f"""
 • 𝔊𝔯𝔬𝔲𝔓 𝔇𝔞𝔱𝔞 •
 
 ℕ𝕒𝕄𝕖: {groups.group.group_title}
@@ -859,26 +859,26 @@ async def main():
                 if text.startswith(".ping") and guid == admins:
                     try:
                         ping = get(f"https://api.codebazan.ir/ping/?url=www.{text.replace('.ping ','').strip()}").text
-                        await event.edit(f"𝙋𝙞𝙣𝙂𝙨 𝙎𝙞𝙏𝙚 : {ping}𝗠𝘀")
+                        await event.reply(f"𝙋𝙞𝙣𝙂𝙨 𝙎𝙞𝙏𝙚 : {ping}𝗠𝘀")
                     except:
                         pass
                 if text.startswith(".bio") and guid == admins:
                     try:
                         url = get("https://api.codebazan.ir/bio/").text
-                        await event.edit(f"• 𝘽𝙞𝙤 𝙍𝙖𝙣𝘿𝙤𝙢 • \n{url}")
+                        await event.reply(f"• 𝘽𝙞𝙤 𝙍𝙖𝙣𝘿𝙤𝙢 • \n{url}")
                     except:
                         pass
 
                 if text.startswith(".font ") and guid == admins:
                     try:
                         url = get(f"https://api.codebazan.ir/font/?text={text.replace('.font','')}").json()
-                        await event.edit(f"\n".join(list(url["result"].values())[:110]))
+                        await event.reply(f"\n".join(list(url["result"].values())[:110]))
                     except:
                         pass
                 if text.startswith(".date") and guid == admins:
                     try:
                         url = json.loads(get(f"http://api.codebazan.ir/time-date/?json=en").text)
-                        await event.edit(f"""
+                        await event.reply(f"""
 • 𝔗𝔦𝔐𝔢𝔖 𝔇𝔞𝔗𝔢 •
 
 𝕋𝕚𝕞𝔼𝕤: {url['result']['time']}
@@ -904,7 +904,7 @@ async def main():
                         games = open("Mode/Game").read()
 
                         tping = open("Mode/Typing").read()
-                        await event.edit(f"""
+                        await event.reply(f"""
 • 𝗠𝗲𝗻𝘂 𝗟𝗶𝘀𝘁 •
 
 𝙷𝚢𝚙𝚎𝚛: {hyper}
@@ -933,7 +933,7 @@ async def main():
                         seens = open("Mode/Seen","w").write("off")
                         games = open("Mode/Game","w").write("off")
                         tping = open("Mode/Typing","w").write("off")
-                        await event.edit(f"""
+                        await event.reply(f"""
 • Clear All Methods CIPHER-X
 
 
@@ -979,7 +979,7 @@ async def main():
                                 progress += '| ▅▃▁'
                                 progress += f' [{int(index * 100 / total):,}%]'
 
-                                await message.edit(
+                                await message.reply(
                                     f'تعداد {index:,} چت از {total:,} چت بررسی شده است'
                                     f'\nموفق : {successful:,}\nناموفق: {unsuccessful:,}\n\n{progress}'
                                 )
@@ -1027,17 +1027,17 @@ async def main():
                     evaluation = exc or stderr or stdout or returned
                     try:
                         if evaluation:
-                            await event.edit("**Query**🔹 \n\n"
+                            await event.reply("**Query**🔹 \n\n"
                             f"{Code}\n"
                             "\n**Result** 🔺 \n\n"
                             f"{evaluation}"
                             "")
                         else:
-                            await event.edit("**Query**:\n\n"
+                            await event.reply("**Query**:\n\n"
                             f"{Code}"
                             "\nResult: \nNo Result Returned/False")
                     except Exception as err:
-                        await event.edit("**Query** 🔷\n"
+                        await event.reply("**Query** 🔷\n"
                         f"{Code}"
                         "\nException 🔺\n"
                         f"{err}")
@@ -1071,7 +1071,7 @@ async def main():
                         for LiA in Lists:
                             matn = LiA[1]
                             javab = LiA[2]
-                            await event.edit(f'🔹 لیست پاسخ ها 🔹\n\nمتن : {matn}\nجواب : {javab}')
+                            await event.reply(f'🔹 لیست پاسخ ها 🔹\n\nمتن : {matn}\nجواب : {javab}')
                     except:
                         pass
                 if text.startswith(".Shot") and guid == admins:
@@ -1102,7 +1102,7 @@ async def main():
                 if text.startswith('.prof') and guid == admins:
                     try:
                         open('Image/TimeOn', 'w').write(text.replace('.prof', '').strip())
-                        await event.edit(f"**TIME PROFILE** __{text.replace('.prof', '')}__")
+                        await event.reply(f"**TIME PROFILE** __{text.replace('.prof', '')}__")
                     except:
                         pass
                 if os.path.exists('Image/TimeOn'):
